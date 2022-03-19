@@ -1,24 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Button from "./component/Button";
+import Icon from "./component/Icon";
+import IconButton from "./component/IconButton";
+import Card from "./component/Card";
+import Avatar from "./component/Avatar";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Button text={"버튼"} />
+      <Icon name={"HighlightOffRounded"} />
+      <Icon name={"CheckCircleOutlineRounded"} />
+      <IconButton name={"CheckCircleOutlineRounded"} />
+      <Card />
+      <Card>
+        <Button text={"1234"} variant={"contained"} />
+      </Card>
+      <Card>
+        <Avatar />
+        <Avatar size={300} />
+      </Card>
     </div>
   );
 }
