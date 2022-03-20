@@ -4,7 +4,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import { ITextBox } from "./Input.types";
 
 export default {
-  title: "default",
+  title: "Input",
   component: DefaultTextBox,
 } as ComponentMeta<typeof DefaultTextBox>;
 
@@ -16,7 +16,7 @@ const Template: ComponentStory<typeof DefaultTextBox> = ({
   <DefaultTextBox placeholder={placeholder} value={value} onChange={onChange} />
 );
 
-const DefaultTextBoxStory = Template.bind({});
+export const DefaultTextBoxStory = Template.bind({});
 
 DefaultTextBoxStory.args = {
   value: "",

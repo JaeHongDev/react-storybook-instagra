@@ -5,7 +5,7 @@ import Button from "../Button";
 export interface ITextBox {
   placeholder?: string;
   value: string;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export interface IButtonInsideTextBox extends ITextBox {

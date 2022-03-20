@@ -1,17 +1,25 @@
 import React from "react";
 import { Button as MuiButton } from "@mui/material";
-import { OverridableStringUnion } from "@mui/types";
-import { ButtonPropsVariantOverrides } from "@mui/material/Button/Button";
+import LoadingSvg from "../../svg/Loading";
 
-type buttonType = {
-  text: string;
+export type IButton = {
+  text?: string;
   variant?: "text" | "outlined" | "contained";
+  onClick?: () => void;
+  children?: React.ReactNode;
+  loading?: boolean;
 };
 
-const Button = ({ text, variant = "text" }: buttonType) => {
+const Button = ({
+  children,
+  text,
+  variant = "text",
+  onClick,
+  loading = false,
+}: IButton) => {
   return (
-    <MuiButton style={{ width: "100%" }} variant={variant}>
-      {text}
+    <MuiButton style={{ width: "100%" }} variant={variant} onClick={onClick}>
+      {loading ? <LoadingSvg /> : text}
     </MuiButton>
   );
 };
