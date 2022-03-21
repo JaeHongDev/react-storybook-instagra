@@ -6,6 +6,7 @@ export interface ITextBox {
   placeholder?: string;
   value: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  type?: "text" | "password";
 }
 
 export interface IButtonInsideTextBox extends ITextBox {

@@ -30,9 +30,11 @@ export const ButtonInsideTextBox = ({
   value,
   onChange,
   endAdornment,
+  type,
 }: IButtonInsideTextBox) => {
   return (
     <CssTextField
+      type={type}
       sx={{ m: 1 }}
       variant="filled"
       size="small"

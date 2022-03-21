@@ -1,25 +1,45 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import { InstagramLogo } from "../../static/png";
 import Card from "../../component/Card";
 import { Divider, styled } from "@mui/material";
 import { ButtonInsideTextBox, DefaultTextBox } from "../../component/Input";
 import Button from "../../component/Button";
+import { ILoginUser } from "../../page/Auth";
+
+export interface ILogin {
+  loginUser: ILoginUser;
+  changeLoginUserData: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
 
 const LoginWrap = styled(Card)({
-  maxWidth: "350px",
+  maxWidth: 350,
+  width: 350,
 });
 
-const Login = () => {
+const Login = ({ loginUser, changeLoginUserData }: ILogin) => {
+  const [visiblePassword, setVisiblePassword] = useState<boolean>(false);
+  const changeVisiblePassword = useCallback(() => {
+    setVisiblePassword(!visiblePassword);
+  }, [visiblePassword]);
   return (
     <LoginWrap>
       <InstagramLogo />
       <DefaultTextBox
-        value={""}
+        value={loginUser.id}
+        onChange={changeLoginUserData}
         placeholder={"전화번호,사용자 이름 또는 이메일"}
       />
       <ButtonInsideTextBox
-        endAdornment={<Button text={"숨기기"} />}
-        value={""}
+        endAdornment={
+          <Button
+            text={visiblePassword ? "비밀번호 표시" : "비밀번호 숨기기"}
+            onClick={changeVisiblePassword}
+          />
+        }
+        onChange={changeLoginUserData}
+        value={loginUser.password}
+        placeholder={"비밀번호"}
+        type={visiblePassword ? "password" : "text"}
       />
       <Button text={"로그인"} />
       <Divider>또는</Divider>
