@@ -2,7 +2,7 @@ import React, { useCallback, useState } from "react";
 import { InstagramLogo } from "../../static/png";
 import Card from "../../component/Card";
 import { Divider, styled } from "@mui/material";
-import { ButtonInsideTextBox, DefaultTextBox } from "../../component/Input";
+import Input from "../../component/Input";
 import Button from "../../component/Button";
 import { ILoginUser } from "../../page/Auth";
 
@@ -24,12 +24,12 @@ const Login = ({ loginUser, changeLoginUserData }: ILogin) => {
   return (
     <LoginWrap>
       <InstagramLogo />
-      <DefaultTextBox
+      <Input
         value={loginUser.id}
         onChange={changeLoginUserData}
         placeholder={"전화번호,사용자 이름 또는 이메일"}
       />
-      <ButtonInsideTextBox
+      <Input
         endAdornment={
           <Button
             text={visiblePassword ? "비밀번호 표시" : "비밀번호 숨기기"}

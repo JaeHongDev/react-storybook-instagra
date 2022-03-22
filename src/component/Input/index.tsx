@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { TextField } from "@mui/material";
-import { IButtonInsideTextBox, ITextBox } from "./Input.types";
+import { ITextBox } from "./Input.types";
 
 const CssTextField = styled(TextField)({
   minWidth: 300,
@@ -10,28 +10,13 @@ const CssTextField = styled(TextField)({
   backgroundColor: "#ffffff",
 });
 
-export const DefaultTextBox = ({ placeholder, value, onChange }: ITextBox) => {
-  return (
-    <CssTextField
-      sx={{ m: 1 }}
-      variant="filled"
-      size="small"
-      label={placeholder}
-      value={value}
-      onChange={onChange}
-      InputProps={{
-        disableUnderline: true,
-      }}
-    />
-  );
-};
-export const ButtonInsideTextBox = ({
+const Input = ({
   placeholder,
   value,
   onChange,
   endAdornment,
   type,
-}: IButtonInsideTextBox) => {
+}: ITextBox) => {
   return (
     <CssTextField
       type={type}
@@ -48,3 +33,5 @@ export const ButtonInsideTextBox = ({
     />
   );
 };
+
+export default Input;

@@ -7,8 +7,5 @@ export interface ITextBox {
   value: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   type?: "text" | "password";
-}
-
-export interface IButtonInsideTextBox extends ITextBox {
-  endAdornment: ReactElement<typeof IconButton> | ReactElement<typeof Button>;
+  endAdornment?: ReactElement<typeof IconButton> | ReactElement<typeof Button>;
 }
